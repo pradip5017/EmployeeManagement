@@ -22,18 +22,12 @@ public class Employee {
     private String department;
 
     private String position;
-
     private BigDecimal salary;
 
     private LocalDate dateOfJoining;
-
-
-    // Default constructor
     public Employee() {
     }
 
-
-    // Parameterized constructor
     public Employee(
             String name,
             String email,
@@ -50,8 +44,6 @@ public class Employee {
         this.dateOfJoining = dateOfJoining;
     }
 
-
-
     public Long getId() {
         return id;
     }
@@ -60,8 +52,6 @@ public class Employee {
         this.id = id;
     }
 
-
-    // Name
     public String getName() {
         return name;
     }
@@ -70,8 +60,6 @@ public class Employee {
         this.name = name;
     }
 
-
-    // Email
     public String getEmail() {
         return email;
     }
@@ -80,8 +68,6 @@ public class Employee {
         this.email = email;
     }
 
-
-    // Department
     public String getDepartment() {
         return department;
     }
@@ -90,8 +76,6 @@ public class Employee {
         this.department = department;
     }
 
-
-    // Position
     public String getPosition() {
         return position;
     }
@@ -100,8 +84,6 @@ public class Employee {
         this.position = position;
     }
 
-
-    // Salary
     public BigDecimal getSalary() {
         return salary;
     }
@@ -109,7 +91,6 @@ public class Employee {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
-
 
     public LocalDate getDateOfJoining() {
         return dateOfJoining;

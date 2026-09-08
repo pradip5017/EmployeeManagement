@@ -28,42 +28,34 @@ public class SecurityConfig {
         this.jwtFilter = jwtFilter;
     }
 
-    // BCrypt password encoder
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // Security configuration
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http) throws Exception {
 
         http
-                // Disable CSRF because we are using JWT
                 .csrf(csrf -> csrf.disable())
 
-                // JWT is stateless
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS
                         )
                 )
 
-                // Authorization
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public APIs
                         .requestMatchers(
                                 "/api/auth/register",
                                 "/api/auth/login"
                         ).permitAll()
 
-                        // All other APIs require authentication
                         .anyRequest().authenticated()
                 )
 
-                // JWT filter
                 .addFilterBefore(
                         jwtFilter,
                         UsernamePasswordAuthenticationFilter.class
@@ -72,7 +64,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // Authentication Manager
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration configuration)

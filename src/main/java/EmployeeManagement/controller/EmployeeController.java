@@ -1,6 +1,5 @@
 package EmployeeManagement.controller;
 
-
 import EmployeeManagement.entity.Employee;
 import EmployeeManagement.service.EmployeeService;
 import org.springframework.data.domain.Page;
@@ -31,7 +30,7 @@ public class EmployeeController {
         );
     }
 
-    @GetMapping("/getByid{id}")
+    @GetMapping("/getByid/{id}")
     public ResponseEntity<Employee> getEmployee(
             @PathVariable Long id) {
 
@@ -40,8 +39,8 @@ public class EmployeeController {
         );
     }
 
-    // GET ALL + PAGINATION + SORTING
-    @GetMapping("/getAll")
+    // with pagination use..!!
+    @GetMapping
     public ResponseEntity<Page<Employee>> getEmployees(
 
             @RequestParam(defaultValue = "0")
