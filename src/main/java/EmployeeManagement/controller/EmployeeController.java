@@ -21,7 +21,6 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    // CREATE
     @PostMapping
     public ResponseEntity<Employee> createEmployee(
             @RequestBody Employee employee) {
@@ -32,8 +31,7 @@ public class EmployeeController {
         );
     }
 
-    // GET BY ID
-    @GetMapping("/{id}")
+    @GetMapping("/getByid{id}")
     public ResponseEntity<Employee> getEmployee(
             @PathVariable Long id) {
 
@@ -43,7 +41,7 @@ public class EmployeeController {
     }
 
     // GET ALL + PAGINATION + SORTING
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<Page<Employee>> getEmployees(
 
             @RequestParam(defaultValue = "0")
@@ -68,8 +66,8 @@ public class EmployeeController {
         );
     }
 
-    // UPDATE
-    @PutMapping("/{id}")
+
+    @PutMapping("/update/{id}")
     public ResponseEntity<Employee> updateEmployee(
 
             @PathVariable Long id,
@@ -84,15 +82,15 @@ public class EmployeeController {
         );
     }
 
-    // DELETE
-    @DeleteMapping("/{id}")
+
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEmployee(
             @PathVariable Long id) {
 
         employeeService.deleteEmployee(id);
 
         return ResponseEntity.ok(
-                "Employee deleted successfully"
+                "Employee deleted successfully "+id
         );
     }
 }

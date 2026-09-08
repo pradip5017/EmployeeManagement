@@ -25,7 +25,6 @@ public class User {
     }
 
 
-    // Parameterized constructor
     public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
@@ -33,18 +32,15 @@ public class User {
     }
 
 
-    // Getter
     public Long getId() {
         return id;
     }
 
-    // Setter
     public void setId(Long id) {
         this.id = id;
     }
 
 
-    // Username
     public String getUsername() {
         return username;
     }
@@ -54,7 +50,6 @@ public class User {
     }
 
 
-    // Password
     public String getPassword() {
         return password;
     }
@@ -64,7 +59,6 @@ public class User {
     }
 
 
-    // Role
     public String getRole() {
         return role;
     }
