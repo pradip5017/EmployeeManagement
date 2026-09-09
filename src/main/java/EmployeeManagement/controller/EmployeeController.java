@@ -45,7 +45,6 @@ public class EmployeeController {
 
             @RequestParam(defaultValue = "0")
             int page,
-
             @RequestParam(defaultValue = "10")
             int size,
 
@@ -89,7 +88,7 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
 
         return ResponseEntity.ok(
-                "Employee deleted successfully "+id
+                "Employee deleted successfully  with id : "+id
         );
     }
 }
